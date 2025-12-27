@@ -39,7 +39,16 @@ devtools::install_github("dheimgartner/RSQL")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The basic workflow is as follows:
+
+1.  Create an `SQLcontainer` instance.
+2.  Pull the Microsoft SQL Server docker image.
+3.  Create a new podman container.
+4.  Establish a connection.
+5.  Run SQL commands.
+6.  Disconnect.
+7.  If the container is no longer needed, delete it (all data will be
+    lost!).
 
 ``` r
 library(RSQL)
@@ -55,6 +64,7 @@ container <- SQLcontainer(
   user = "test"
 )
 
+# container$pull_image()
 container$create()
 container$connect()
 container$con
