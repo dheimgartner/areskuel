@@ -1,0 +1,83 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# RSQL
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `RSQL` is to easily set up, manage and interact with `podman` containers that run `Microsoft SQL Server` (and possibly other containerized DBMS in the future).
+
+## Prerequisites
+
+You need to install `podman` and the `ODBC` drivers. The main functionality is implemented in the bash shell script in `inst/scripts/mssqlcontainer.sh`. That being said, it should be clear that `RSQL` is for Linux-users...
+
+- `podman` installation: https://podman.io/docs/installation#installing-on-linux
+- `ODBC` drivers: https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver17&tabs=alpine18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline
+
+## Installation
+
+Install from CRAN:
+
+``` r
+install.packages("RSQL")
+```
+
+You can install the development version of `RSQL` like so:
+
+``` r
+devtools::install_github("dheimgartner/RSQL")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+## check sys prerequisites
+checks <- check_sys_dependencies()
+if (!all(as.logical(checks))) {
+  stop("System requirements not met. Make sure podman and ODBC drivers are installed.")
+}
+
+container <- SQLcontainer(
+  container = "rsql",
+  user = "test"
+)
+
+container$create()
+container$connect()
+container$con
+
+## create a test table "iris" with the iris data
+container$test()
+
+rsql <- container$sql("SELECT * FROM iris")
+rsql
+
+## create a new database
+container$sql("CREATE DATABASE db_foo")
+container$set_database("db_foo")
+container$con
+
+## check the history
+container$sql_history
+
+## close the connection
+container$disconnect()
+
+## delete the container (all data will be lost!)
+container$delete()
+```

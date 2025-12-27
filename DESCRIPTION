@@ -1,10 +1,10 @@
 Package: RSQL
-Title: Interface to a podman container running Microsoft SQL Server
+Title: Interface to podman containers running Microsoft SQL Server
 Version: 0.0.0.9000
 Authors@R: 
     person("Daniel", "Heimgartner", , "d.heimgartners@gmail.com", role = c("aut", "cre"))
-Description: Allows R users to set up a podman container running Microsoft SQL
-    Server and interact with it.
+Description: Easily set up, manage and interact with podman containers that run 
+    Microsoft SQL Server.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
