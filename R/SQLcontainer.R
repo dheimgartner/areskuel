@@ -30,7 +30,7 @@ setClassUnion("MSSQL#NULL", c("Microsoft SQL Server", "NULL"))
 
 #' The main reference class to manage and interact with the podman container
 #'
-#' @field path The path to the `sqlcontainer.sh` executable.
+#' @field path The path to the `mssqlcontainer.sh` executable.
 #' @field container The name of the container. Defaults to `"rsql"`.
 #' @field user The SQL user. Defaults to `"ursql"`.
 #' @field con The DB connection.
@@ -42,8 +42,10 @@ setClassUnion("MSSQL#NULL", c("Microsoft SQL Server", "NULL"))
 #'  Needs to conform with MSSQL's password policy!
 #' @field driver The `odbc`-driver to use. Defaults to `""ODBC Driver 18 for SQL Server"`.
 #'
-#' @seealso The method documentation and `SQLcontainer$help()`
+#' @seealso The methods documentation and `SQLcontainer$help()`
 #' @name SQLcontainer
+#'
+#' @example R/examples/ex-SQLcontainer.R
 SQLcontainer <- setRefClass(
   "SQLcontainer",
   fields = c(
