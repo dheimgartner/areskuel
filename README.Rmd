@@ -46,6 +46,8 @@ devtools::install_github("dheimgartner/RSQL")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
+library(RSQL)
+
 ## check sys prerequisites
 checks <- check_sys_dependencies()
 if (!all(as.logical(checks))) {
@@ -68,7 +70,7 @@ rsql <- container$sql("SELECT * FROM iris")
 rsql
 
 ## create a new database
-container$sql("CREATE DATABASE db_foo")
+foo <- container$sql("CREATE DATABASE db_foo")
 container$set_database("db_foo")
 container$con
 
