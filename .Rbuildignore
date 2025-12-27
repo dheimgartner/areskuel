@@ -1,2 +1,4 @@
 ^RSQL\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^dev.R
