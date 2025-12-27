@@ -6,6 +6,7 @@
 #' @slot data The resulting data.
 #'
 #' @name RSQL
+#' @export
 RSQL <- setClass("RSQL", slots = c(
   server = "character",
   database = "character",
@@ -20,6 +21,7 @@ RSQL <- setClass("RSQL", slots = c(
 #' @slot sql The SQL query.
 #'
 #' @name SQLhistory
+#' @export
 SQLhistory <- setClass("SQLhistory", slots = c(
   server = "character",
   database = "character",
@@ -30,6 +32,8 @@ setClassUnion("MSSQL#NULL", c("Microsoft SQL Server", "NULL"))
 
 #' The main reference class to manage and interact with the podman container
 #'
+#' ...and in paricular it's SQL server!
+#'
 #' @field path The path to the `mssqlcontainer.sh` executable.
 #' @field container The name of the container. Defaults to `"rsql"`.
 #' @field user The SQL user. Defaults to `"ursql"`.
@@ -37,15 +41,16 @@ setClassUnion("MSSQL#NULL", c("Microsoft SQL Server", "NULL"))
 #' @field server The server to connect to. Defaults to `"localhost"`.
 #' @field database The database to connect to. Defaults to `"master"`.
 #' @field port The port number. Defaults to `"1433"`.
-#' @field sql_history A list of `"SQLhistory"` elements ["SQLhistory"].
+#' @field sql_history A list of `"SQLhistory"` elements [SQLhistory].
 #' @field password The associated password for the user. Defaults to `"P@assword123!"`.
 #'  Needs to conform with MSSQL's password policy!
-#' @field driver The `odbc`-driver to use. Defaults to `""ODBC Driver 18 for SQL Server"`.
+#' @field driver The `odbc`-driver to use. Defaults to `"ODBC Driver 18 for SQL Server"`.
 #'
 #' @seealso The methods documentation and `SQLcontainer$help()`
 #' @name SQLcontainer
 #'
 #' @example R/examples/ex-SQLcontainer.R
+#' @rawNamespace export(SQLcontainer)
 SQLcontainer <- setRefClass(
   "SQLcontainer",
   fields = c(

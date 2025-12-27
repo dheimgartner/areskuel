@@ -5,7 +5,7 @@
 \alias{SQLcontainer}
 \title{The main reference class to manage and interact with the podman container}
 \description{
-The main reference class to manage and interact with the podman container
+...and in paricular it's SQL server!
 }
 \section{Fields}{
 
@@ -24,12 +24,12 @@ The main reference class to manage and interact with the podman container
 
 \item{\code{port}}{The port number. Defaults to \code{"1433"}.}
 
-\item{\code{sql_history}}{A list of \code{"SQLhistory"} elements \link{"SQLhistory"}.}
+\item{\code{sql_history}}{A list of \code{"SQLhistory"} elements \link{SQLhistory}.}
 
 \item{\code{password}}{The associated password for the user. Defaults to \code{"P@assword123!"}.
 Needs to conform with MSSQL's password policy!}
 
-\item{\code{driver}}{The \code{odbc}-driver to use. Defaults to \verb{""ODBC Driver 18 for SQL Server"}.}
+\item{\code{driver}}{The \code{odbc}-driver to use. Defaults to \code{"ODBC Driver 18 for SQL Server"}.}
 }}
 
 
@@ -74,5 +74,5 @@ container$delete()
 }
 }
 \seealso{
-The method documentation and \code{SQLcontainer$help()}
+The methods documentation and \code{SQLcontainer$help()}
 }
