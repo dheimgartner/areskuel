@@ -64,7 +64,7 @@ SQLcontainer$methods(
   initialize = function(container = "rsql", user = "ursql", password = "P@ssword123!",
                         server = "localhost", database = "master", port = "1433",
                         driver = "ODBC Driver 18 for SQL Server") {
-    path <<- system.file("scripts", "sqlcontainer.sh", package = "RSQL")
+    path <<- system.file("scripts", "mssqlcontainer.sh", package = "RSQL")
     container <<- container
     user <<- user
     con <<- NULL
