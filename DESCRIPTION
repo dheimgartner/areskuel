@@ -2,7 +2,7 @@ Package: areskuel
 Title: Interface to Podman Containers Running Microsoft SQL Server
 Version: 0.0.0.9000
 Authors@R: 
-    person("Daniel", "Heimgartner", , "d.heimgartners@gmail.com", role = c("aut", "cre"))
+    person("Daniel", "Heimgartner", , "d.heimgartners@gmail.com", role = c("aut", "cre", "cph"))
 Description: Easily set up, manage and interact with podman containers that run 
     Microsoft SQL Server. RSQL was already taken on CRAN...
 License: MIT + file LICENSE

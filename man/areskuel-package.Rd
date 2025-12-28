@@ -17,6 +17,6 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Daniel Heimgartner \email{d.heimgartners@gmail.com}
+\strong{Maintainer}: Daniel Heimgartner \email{d.heimgartners@gmail.com} [copyright holder]
 
 }

@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(RSQL)
+library(areskuel)
 
-test_check("RSQL")
+test_check("areskuel")
