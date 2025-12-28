@@ -1,5 +1,5 @@
 ## Sources from DESCRIPTION
-#' @name RSQL-package
+#' @name areskuel-package
 "_PACKAGE"
 
 #' @rawNamespace importClassesFrom(odbc, "Microsoft SQL Server")

@@ -6,7 +6,7 @@
 #' @slot data The resulting data.
 #'
 #' @export
-RSQL <- setClass("RSQL", slots = c(
+Areskuel <- setClass("Areskuel", slots = c(
   server = "character",
   database = "character",
   sql = "character",
@@ -33,8 +33,8 @@ setClassUnion("MSSQL#NULL", c("Microsoft SQL Server", "NULL"))
 #' ...and in paricular it's SQL server!
 #'
 #' @field path The path to the `mssqlcontainer.sh` executable.
-#' @field container The name of the container. Defaults to `"rsql"`.
-#' @field user The SQL user. Defaults to `"ursql"`.
+#' @field container The name of the container. Defaults to `"areskuel"`.
+#' @field user The SQL user. Defaults to `"uaresql"`.
 #' @field con The DB connection.
 #' @field server The server to connect to. Defaults to `"localhost"`.
 #' @field database The database to connect to. Defaults to `"master"`.
@@ -66,10 +66,10 @@ SQLcontainer <- setRefClass(
 )
 
 SQLcontainer$methods(
-  initialize = function(container = "rsql", user = "ursql", password = "P@ssword123!",
+  initialize = function(container = "areskuel", user = "uaresql", password = "P@ssword123!",
                         server = "localhost", database = "master", port = "1433",
                         driver = "ODBC Driver 18 for SQL Server") {
-    path <<- system.file("scripts", "mssqlcontainer.sh", package = "RSQL")
+    path <<- system.file("scripts", "mssqlcontainer.sh", package = "areskuel")
     container <<- container
     user <<- user
     con <<- NULL
@@ -191,7 +191,7 @@ SQLcontainer$methods(
     dat <- DBI::dbGetQuery(con, sql)
     hist <- SQLhistory(server = server, database = database, sql = sql)
     sql_history <<- append(sql_history, hist)
-    RSQL(
+    Areskuel(
       server = server,
       database = database,
       sql = sql,

@@ -2,13 +2,13 @@
 
 ## check sys prerequisites
 checks <- check_sys_dependencies()
-if (!all(as.logical(checks))) {
+if (!all(checks)) {
   stop("System requirements not met. Make sure podman and ODBC drivers are installed.")
 }
 
 container <- SQLcontainer(
-  container = "rsql",
-  user = "test"
+  container = "test_areskuel",
+  user = "test_user"
 )
 
 container$create()
@@ -22,7 +22,7 @@ rsql <- container$sql("SELECT * FROM iris")
 rsql
 
 ## create a new database
-container$sql("CREATE DATABASE db_foo")
+foo <- container$sql("CREATE DATABASE db_foo")
 container$set_database("db_foo")
 container$con
 

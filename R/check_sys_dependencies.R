@@ -29,6 +29,6 @@ check_odbc <- function() {
 #' @export
 check_sys_dependencies <- function() {
   funcs <- list(podman = check_podman, odbc_driver = check_odbc)
-  checks <- lapply(funcs, function(x) x())
+  checks <- sapply(funcs, function(x) x())
   checks
 }

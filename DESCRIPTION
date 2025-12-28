@@ -1,10 +1,10 @@
-Package: RSQL
+Package: areskuel
 Title: Interface to Podman Containers Running Microsoft SQL Server
 Version: 0.0.0.9000
 Authors@R: 
     person("Daniel", "Heimgartner", , "d.heimgartners@gmail.com", role = c("aut", "cre"))
 Description: Easily set up, manage and interact with podman containers that run 
-    Microsoft SQL Server.
+    Microsoft SQL Server. RSQL was already taken on CRAN...
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -17,5 +17,5 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/dheimgartner/RSQL
-BugReports: https://github.com/dheimgartner/RSQL/issues
+URL: https://github.com/dheimgartner/areskuel
+BugReports: https://github.com/dheimgartner/areskuel/issues

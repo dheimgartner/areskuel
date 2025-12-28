@@ -12,9 +12,9 @@
 \describe{
 \item{\code{path}}{The path to the \code{mssqlcontainer.sh} executable.}
 
-\item{\code{container}}{The name of the container. Defaults to \code{"rsql"}.}
+\item{\code{container}}{The name of the container. Defaults to \code{"areskuel"}.}
 
-\item{\code{user}}{The SQL user. Defaults to \code{"ursql"}.}
+\item{\code{user}}{The SQL user. Defaults to \code{"uaresql"}.}
 
 \item{\code{con}}{The DB connection.}
 
@@ -38,13 +38,13 @@ Needs to conform with MSSQL's password policy!}
 
 ## check sys prerequisites
 checks <- check_sys_dependencies()
-if (!all(as.logical(checks))) {
+if (!all(checks)) {
   stop("System requirements not met. Make sure podman and ODBC drivers are installed.")
 }
 
 container <- SQLcontainer(
-  container = "rsql",
-  user = "test"
+  container = "test_areskuel",
+  user = "test_user"
 )
 
 container$create()
@@ -58,7 +58,7 @@ rsql <- container$sql("SELECT * FROM iris")
 rsql
 
 ## create a new database
-container$sql("CREATE DATABASE db_foo")
+foo <- container$sql("CREATE DATABASE db_foo")
 container$set_database("db_foo")
 container$con
 

@@ -3,8 +3,8 @@ skip_on_cran()
 test_that("main", {
   pw <- "P@assword123!"
   container <- SQLcontainer(
-    container = "test_rsql",
-    user = "test",
+    container = "test_areskuel",
+    user = "test_user",
     password = pw
   )
   tryCatch({
@@ -25,8 +25,8 @@ test_that("main", {
 test_that("can create and set new database and connect to it", {
   pw <- "P@assword123!"
   container <- SQLcontainer(
-    container = "test_rsql",
-    user = "test",
+    container = "test_areskuel",
+    user = "test_user",
     password = pw
   )
   tryCatch({

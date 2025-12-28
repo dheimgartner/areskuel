@@ -1,22 +1,23 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RSQL
+# areskuel
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of `RSQL` is to easily set up, manage and interact with
-`podman` containers that run `Microsoft SQL Server` (and possibly other
-containerized DBMS in the future).
+The goal of `areskuel` (pronunciation: R SQL) is to easily set up,
+manage and interact with `podman` containers that run
+`Microsoft SQL Server` (and possibly other containerized DBMS in the
+future).
 
 ## Prerequisites
 
 You need to install `podman` and the `ODBC` drivers. The main
 functionality is implemented in the bash shell script in
 `inst/scripts/mssqlcontainer.sh`. That being said, it should be clear
-that `RSQL` is for Linux-users…
+that `areskuel` is for Linux-users…
 
 - `podman` installation:
   <https://podman.io/docs/installation#installing-on-linux>
@@ -28,13 +29,13 @@ that `RSQL` is for Linux-users…
 Install from CRAN:
 
 ``` r
-install.packages("RSQL")
+install.packages("areskuel")
 ```
 
-You can install the development version of `RSQL` like so:
+You can install the development version of `areskuel` like so:
 
 ``` r
-devtools::install_github("dheimgartner/RSQL")
+devtools::install_github("dheimgartner/areskuel")
 ```
 
 ## Example
@@ -51,24 +52,24 @@ The basic workflow is as follows:
     lost!).
 
 ``` r
-library(RSQL)
+library(areskuel)
 
 ## check sys prerequisites
 checks <- check_sys_dependencies()
-if (!all(as.logical(checks))) {
+if (!all(checks)) {
   stop("System requirements not met. Make sure podman and ODBC drivers are installed.")
 }
 
 container <- SQLcontainer(
-  container = "rsql",
-  user = "test"
+  container = "test_areskuel",
+  user = "test_user"
 )
 
 # container$pull_image()
 container$create()
 container$connect()
 container$con
-#> <OdbcConnection> dbo@rsql
+#> <OdbcConnection> dbo@test_areskuel
 #>   Database: master
 #>   Microsoft SQL Server Version: 14.00.3038
 
@@ -78,7 +79,7 @@ container$test()
 
 rsql <- container$sql("SELECT * FROM iris")
 rsql
-#> An object of class "RSQL"
+#> An object of class "Areskuel"
 #> Slot "server":
 #> [1] "localhost"
 #> 
@@ -108,7 +109,7 @@ rsql
 foo <- container$sql("CREATE DATABASE db_foo")
 container$set_database("db_foo")
 container$con
-#> <OdbcConnection> dbo@rsql
+#> <OdbcConnection> dbo@test_areskuel
 #>   Database: db_foo
 #>   Microsoft SQL Server Version: 14.00.3038
 
