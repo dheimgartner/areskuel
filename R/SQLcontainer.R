@@ -5,7 +5,6 @@
 #' @slot sql The SQL query.
 #' @slot data The resulting data.
 #'
-#' @name RSQL
 #' @export
 RSQL <- setClass("RSQL", slots = c(
   server = "character",
@@ -20,7 +19,6 @@ RSQL <- setClass("RSQL", slots = c(
 #' @slot database The database connected to at the time of the query execution.
 #' @slot sql The SQL query.
 #'
-#' @name SQLhistory
 #' @export
 SQLhistory <- setClass("SQLhistory", slots = c(
   server = "character",

@@ -1,5 +1,5 @@
 Package: RSQL
-Title: Interface to podman containers running Microsoft SQL Server
+Title: Interface to Podman Containers Running Microsoft SQL Server
 Version: 0.0.0.9000
 Authors@R: 
     person("Daniel", "Heimgartner", , "d.heimgartners@gmail.com", role = c("aut", "cre"))
